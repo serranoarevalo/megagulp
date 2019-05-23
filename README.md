@@ -7,4 +7,5 @@ Gulp Boilerplate for a Professional Frontend Developer Experience.
 - [ ] SCSS (with PostCSS)
 - [ ] Auto Reload
 - [ ] Image Optimization
+- [ ] Pug Support
 - [ ] Deployment (Minify, Uglify)
