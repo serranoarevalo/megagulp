@@ -9,6 +9,7 @@ import autoprefixer from "gulp-autoprefixer";
 import babelify from "babelify";
 import bro from "gulp-bro";
 import uglify from "gulp-uglify";
+import ghPages from "gulp-gh-pages";
 
 sass.compiler = require("node-sass");
 
@@ -74,7 +75,7 @@ const watch = () => {
   gulp.watch(routes.js.watch, js);
 };
 
-const clean = () => del("dest/");
+const clean = () => del(["dest/", ".publish"]);
 
 const server = () =>
   gulp.src("dest").pipe(
@@ -89,6 +90,8 @@ const img = () =>
     .pipe(image())
     .pipe(gulp.dest(routes.img.dest));
 
+const upload = () => gulp.src("dest/**/*").pipe(ghPages());
+
 const prepare = gulp.series([clean, img]);
 
 const assets = gulp.series([pug, styles, js]);
@@ -96,3 +99,7 @@ const assets = gulp.series([pug, styles, js]);
 const live = gulp.parallel([server, watch]);
 
 export const dev = gulp.series([prepare, assets, live]);
+
+export const build = gulp.series([prepare, assets]);
+
+export const deploy = gulp.series([build, upload, clean]);
