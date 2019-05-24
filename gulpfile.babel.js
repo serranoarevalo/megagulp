@@ -2,6 +2,7 @@ import gulp from "gulp";
 import gPug from "gulp-pug";
 import del from "del";
 import webserver from "gulp-webserver";
+import image from "gulp-image";
 
 const routes = {
   css: {},
@@ -9,7 +10,11 @@ const routes = {
     src: "src/*.pug",
     dest: "dest"
   },
-  js: {}
+  js: {},
+  img: {
+    src: "src/img/*",
+    dest: "dest/img"
+  }
 };
 
 function js() {}
@@ -28,14 +33,23 @@ const watch = () => {
 
 const clean = () => del("dest/");
 
-function server() {
+const server = () =>
   gulp.src("dest").pipe(
     webserver({
       livereload: true
     })
   );
-}
 
-function img() {}
+const img = () =>
+  gulp
+    .src(routes.img.src)
+    .pipe(image())
+    .pipe(gulp.dest(routes.img.dest));
 
-export const dev = gulp.series([clean, pug, gulp.parallel([server, watch])]);
+const prepare = gulp.series([clean, img]);
+
+const assets = gulp.series([pug]);
+
+const live = gulp.parallel([server, watch]);
+
+export const dev = gulp.series([prepare, assets, live]);

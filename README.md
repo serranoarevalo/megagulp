@@ -5,7 +5,7 @@ Gulp Boilerplate for a Professional Frontend Developer Experience.
 
 - [ ] ES6 (with Browserify)
 - [ ] SCSS (with PostCSS)
-- [ ] Auto Reload
+- [x] Live Reload
 - [ ] Image Optimization
-- [ ] Pug Support
+- [x] Pug Support
 - [ ] Deployment (Minify, Uglify)
