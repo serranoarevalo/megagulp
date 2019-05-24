@@ -18,4 +18,4 @@ function clean() {}
 
 function server() {}
 
-export function img() {}
+function img() {}
