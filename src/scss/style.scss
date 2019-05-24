@@ -2,7 +2,7 @@
 @import "_variables";
 
 body {
-  background-color: $red;
+  background-image: linear-gradient($red, $red);
   display: flex;
   flex-direction: column;
   justify-content: center;

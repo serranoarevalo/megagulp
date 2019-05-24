@@ -4,6 +4,8 @@ import del from "del";
 import webserver from "gulp-webserver";
 import image from "gulp-image";
 import sass from "gulp-sass";
+import minify from "gulp-csso";
+import autoprefixer from "gulp-autoprefixer";
 
 sass.compiler = require("node-sass");
 
@@ -30,6 +32,14 @@ const styles = () =>
   gulp
     .src(routes.css.src)
     .pipe(sass().on("error", sass.logError))
+    .pipe(
+      autoprefixer({
+        browsers: ["last 2 versions"],
+        flexbox: true,
+        grid: "autoplace"
+      })
+    )
+    .pipe(minify())
     .pipe(gulp.dest(routes.css.dest));
 
 const pug = () =>
