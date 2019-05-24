@@ -15,16 +15,26 @@ function js() {}
 
 function styles() {}
 
-function watch() {}
-
-export const pug = () =>
+const pug = () =>
   gulp
     .src(routes.pug.src)
     .pipe(gPug())
     .pipe(gulp.dest(routes.pug.dest));
 
+const watch = () => {
+  gulp.watch(routes.pug.src, pug);
+};
+
 function clean() {}
 
-function server() {}
+function server() {
+  gulp.src("dest").pipe(
+    webserver({
+      livereload: true
+    })
+  );
+}
 
 function img() {}
+
+export const dev = gulp.series([pug, gulp.parallel([server, watch])]);

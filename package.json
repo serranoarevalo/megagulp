@@ -14,6 +14,6 @@
     "gulp-webserver": "^0.9.1"
   },
   "scripts": {
-    "dev": "gulp"
+    "dev": "gulp dev"
   }
 }
