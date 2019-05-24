@@ -13,7 +13,9 @@
     "gulp": "^4.0.2",
     "gulp-image": "^4.4.1",
     "gulp-pug": "^4.0.1",
-    "gulp-webserver": "^0.9.1"
+    "gulp-sass": "^4.0.2",
+    "gulp-webserver": "^0.9.1",
+    "node-sass": "^4.12.0"
   },
   "scripts": {
     "dev": "gulp dev"
