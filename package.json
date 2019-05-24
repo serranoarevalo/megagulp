@@ -9,6 +9,7 @@
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
+    "del": "^4.1.1",
     "gulp": "^4.0.2",
     "gulp-pug": "^4.0.1",
     "gulp-webserver": "^0.9.1"

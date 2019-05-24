@@ -1,5 +1,6 @@
 import gulp from "gulp";
 import gPug from "gulp-pug";
+import del from "del";
 import webserver from "gulp-webserver";
 
 const routes = {
@@ -25,7 +26,7 @@ const watch = () => {
   gulp.watch(routes.pug.src, pug);
 };
 
-function clean() {}
+const clean = () => del("dest/");
 
 function server() {
   gulp.src("dest").pipe(
@@ -37,4 +38,4 @@ function server() {
 
 function img() {}
 
-export const dev = gulp.series([pug, gulp.parallel([server, watch])]);
+export const dev = gulp.series([clean, pug, gulp.parallel([server, watch])]);
