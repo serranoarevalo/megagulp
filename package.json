@@ -1,0 +1,17 @@
+{
+  "name": "megagulp",
+  "version": "1.0.0",
+  "description": "Gulp Boilerplate for a Professional Frontend Developer Experience.",
+  "repository": "https://github.com/serranoarevalo/megagulp",
+  "author": "Nicolás Serrano Arévalo <itnico.las.me@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "gulp": "^4.0.2"
+  },
+  "scripts": {
+    "dev": "gulp"
+  }
+}
